@@ -17,7 +17,7 @@ function Navbar() {
     const mobile = useSelector(state => state.cart.isMobile)
 
     return (
-        <div className=' sticky top-0 flex h-16 flex-row  justify-between px-6 py-2 z-10 bg-slate-200 items-center'>
+        <div className=' sticky top-0 flex h-16 flex-row  justify-between px-6 py-2 z-[13] bg-slate-200 items-center'>
             <div onClick={() => navigate('/')} className='cursor-pointer'>
                 <h1 className='text-2xl md:text-3xl z-10 font-bold'>ShubBay</h1>
             </div>

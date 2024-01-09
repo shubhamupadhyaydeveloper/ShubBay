@@ -17,7 +17,7 @@ function Maincrousel() {
        renderArrowPrev={(onClickHandler, hasPrev, label) => (
         <div
           onClick={onClickHandler}
-          className='text-[35px] text-red-500 z-10 absolute top-24 flex left-0 items-center justify-center h-[12rem] md:h-72 lg:h-[20rem]'
+          className='text-[35px] text-black z-10 absolute top-24 flex left-0 items-center justify-center h-[12rem] md:h-72 lg:h-[20rem]'
         >
           <GrFormPrevious  />
         </div>
@@ -26,7 +26,7 @@ function Maincrousel() {
        renderArrowNext={(onClickHandler, hasPrev, label) => (
         <div
           onClick={onClickHandler}
-          className='text-[35px] text-red-500 absolute top-24 flex right-0 items-center justify-center h-[12rem] md:h-72 lg:h-[20rem]'
+          className='text-[35px] text-black absolute top-24 flex right-0 items-center justify-center h-[12rem] md:h-72 lg:h-[20rem]'
         >
           <GrFormNext  />
         </div>
