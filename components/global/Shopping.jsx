@@ -54,7 +54,7 @@ function Shopping() {
              <Tab label='BestSeller' value='bestSeller' />
              <Tab label='TopRated' value='topRated' />
             </Tabs>
-          <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 md:ml-8 lg:ml-20 md:gap-1'>
+          <div className='mt-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 md:ml-8 lg:ml-20 md:gap-1'>
             {value === 'men' && men.map((item , index) => (
                   <Item item={item} key={`${item.attributes}-${item.name}-${index}`}/>
             ))}

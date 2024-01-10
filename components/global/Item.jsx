@@ -9,7 +9,7 @@ import { FiMinus } from "react-icons/fi";
 function Item({item , width}) {
 
   const [count , setCount] = useState(1);
-  const [hovered , setIshovered] = useState(false)
+  const [hovered , setHovered] = useState(false)
 
   const {image , price , category , name } = item.attributes;
   const {
@@ -26,47 +26,59 @@ function Item({item , width}) {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const handlehover = () => {
-    console.log('clicked')
-  }
+  
+  const handleMouseEnter = () => {
+    setHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setHovered(false);
+  };
+
+  const incrementCount = () => {
+    setCount(count + 1);
+  };
+
+  const decrementCount = () => {
+    if (count > 0) {
+      setCount(count - 1);
+    }
+  };
 
   return (
-<div className="bg-white" onMouseOver={() => setIshovered(true)}  onMouseOut={() => setIshovered(false)}>
-  <div className="mx-auto px-4 lg:max-w-7xl lg:px-8">
-    <div className="mt-6 ">
-      <div className="group relative">
-        <div className=" h-[24rem] md:w-[20rem] overflow-hidden rounded-md bg-gray-200" >
-          <img src={`http://localhost:1337${url}`} className="h-full w-full object-cover object-center "/>
+    <div className={`overflow-hidden mb-5 mt-3 ${width}`}>
+      <div className='flex mx-auto flex-col items-center justify-center'>
+        <div
+          className='w-[20rem] h-[27rem] relative'
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          onClick={() => navigate(`/item/${item?.id}`)}
+        >
+          <img src={`http://localhost:1337${url}`} alt="photo" className='object-cover cursor-pointer w-full' />
           {hovered && (
-            <div className='flex justify-between md:w-[20rem] w-[18rem] text-black text-2xl absolute bottom-14 px-2'>
-               <div className='flex gap-1'>
-                 <button className='text-white text-xl '><IoMdAdd/></button>
-                  <h1>{count}</h1>
-                 <button className='text-white text-xl '><FiMinus/></button>
-               </div>
-               <div onClick={() => handlehover()}>
-                <button className='bg-slate-600 text-white text-xl px-3 rounded-md'>Add</button>
-               </div>
+            <div className='absolute bottom-0 flex justify-between w-[20rem] px-2'>
+              <div className='flex gap-2 text-xl bg-slate-900 text-white p-2 rounded-md'>
+                <button onClick={incrementCount}><IoMdAdd /></button>
+                <p>{count}</p>
+                <button onClick={decrementCount}><FiMinus /></button>
+              </div>
+              <div className='bg-white text-xl hover:bg-slate-200 text-black rounded-md px-2 flex items-center'
+                 onClick={() => {
+                   navigate('/checkout')
+                   dispatch(addToCart({item : {...item , count}}))
+                 }}
+              >
+                <button>Add</button>
+              </div>
             </div>
           )}
         </div>
-        <div className="mt-4 flex justify-between md:w-[20rem]">
-          <div>
-            <h3 className="text-sm text-gray-700">
-              <a href="#">
-                <span aria-hidden="true" className="absolute inset-0"></span>
-                {name}
-              </a>
-            </h3>
-            <p className="mt-1 text-sm text-gray-500">{category}</p>
-          </div>
-          <p className="text-sm font-medium text-gray-900">${price}</p>
-        </div>
+         <div className='flex justify-between bg-black  text-white px-1 z-[5] mt-2 w-[20rem]'>
+            <div className='text-xl'>{name}</div>
+            <div className='text-md'>${price}</div>
+         </div>
       </div>
-
     </div>
-  </div>
-</div>
 
   )
 }

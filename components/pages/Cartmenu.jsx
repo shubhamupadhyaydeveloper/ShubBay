@@ -50,7 +50,7 @@ function Cartmenu() {
                   </div>
 
                 {
-                  cart.map((item , index) => {
+                  cart.map((item , index) => (
                     <div className="mt-8" key={`${item.attributes.name}-${index}`}>
                     <ul role="list" className="-my-6 divide-y divide-gray-200">
                       <li className="flex py-6">
@@ -84,7 +84,7 @@ function Cartmenu() {
 
                     </ul>
                   </div>
-                  })
+                  ))
 
                 }
                   
