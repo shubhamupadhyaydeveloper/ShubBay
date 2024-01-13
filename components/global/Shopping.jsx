@@ -18,7 +18,6 @@ function Shopping() {
     async function getItems() {
         let items = await fetch('http://localhost:1337/api/items?populate=image', { method: 'GET' })
         let itemsjson = await items.json()
-        // console.log(itemsjson)
         dispatch(setItem(itemsjson.data))
     }
 
@@ -31,11 +30,9 @@ function Shopping() {
     const newArrival = items.filter(item => item.attributes.Category === 'newArrival')
     const bestSeller = items.filter(item => item.attributes.Category === 'bestSeller')
     const topRated = items.filter(item => item.attributes.Category === 'topRated')
-    console.log(items)
-    console.log(men)
 
     return (
-        <div className='mt-8'>
+        <div className='mt-8 overflow-hidden'>
             <h1 className='md:text-[3rem] text-3xl flex items-center justify-center font-serif'>Category</h1>
             <Tabs
                 value={value}

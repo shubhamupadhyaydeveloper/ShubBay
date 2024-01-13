@@ -4,6 +4,8 @@ const initialState = {
     isCartOpen: false,
     isMobile : false,
     mobile : false,
+    addressformdata : {},
+    paymentformdata : {},
     cart: [],
     items: []
 }
@@ -15,6 +17,14 @@ export const cartSlice = createSlice({
         setItem: (state, action) => {
             state.items = action.payload
         },
+
+        addresssetFormData : (state , action) => {
+             state.addressformdata = action.payload
+        } ,
+
+        paymentFormData : (state , action) => {
+            state.paymentformdata = action.payload
+        } ,
 
         addToCart: (state, action) => {
             state.cart = [...state.cart, action.payload.item]
@@ -58,6 +68,8 @@ export const {
   setItem,
   removeFromCart,
   increaseCount,
+  addresssetFormData,
+  paymentFormData,
   decreaseCount,
   setCartOpen,
   addToCart,

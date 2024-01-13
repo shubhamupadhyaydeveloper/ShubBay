@@ -1,10 +1,18 @@
 import React from 'react'
+import { Box } from "@mui/material";
+import Alert from "@mui/material/Alert";
+import AlertTitle from "@mui/material/AlertTitle";
+
 
 function Confirmation() {
   return (
-    <div>
-      <h1 className='text-black text-2xl'>hello this is confirmation</h1>
-    </div>
+    <Box m="90px auto" width="80%" height="50vh">
+    <Alert severity="success">
+      <AlertTitle>Success</AlertTitle>
+      You have successfully made an Order —{" "}
+      <strong>Congrats on Making your Purchase</strong>
+    </Alert>
+  </Box>
   )
 }
 

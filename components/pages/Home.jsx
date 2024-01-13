@@ -8,7 +8,6 @@ function Home() {
     <div>
       <Maincrousel/>
       <Shopping/>
-      <Subscribe/>
     </div>
   )
 }

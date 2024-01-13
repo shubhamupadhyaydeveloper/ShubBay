@@ -5,6 +5,7 @@ import { addToCart } from '../../store/reducer';
 import {useNavigate} from 'react-router-dom'
 import { IoMdAdd } from "react-icons/io";
 import { FiMinus } from "react-icons/fi";
+import { showNotification } from './Notification';
 
 function Item({item , width}) {
 
@@ -22,11 +23,15 @@ function Item({item , width}) {
     }
   } = image
 
-  console.log(hovered)
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  
+  const handleclick = (e) =>  {
+    e.stopPropagation()
+    dispatch(addToCart({item : {...item , count}}))
+    showNotification('Item is added' , 'success')
+  }
+
   const handleMouseEnter = () => {
     setHovered(true);
   };
@@ -63,10 +68,7 @@ function Item({item , width}) {
                 <button onClick={decrementCount}><FiMinus /></button>
               </div>
               <div className='bg-white text-xl hover:bg-slate-200 text-black rounded-md px-2 flex items-center'
-                 onClick={() => {
-                   navigate('/checkout')
-                   dispatch(addToCart({item : {...item , count}}))
-                 }}
+                 onClick={handleclick}
               >
                 <button>Add</button>
               </div>

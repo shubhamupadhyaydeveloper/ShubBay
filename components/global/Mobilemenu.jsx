@@ -16,10 +16,10 @@ function Mobilemenu() {
     const cart = useSelector(state => state.cart.cart)
 
     return (
-        <div className={`${mobile ? "block" : 'hidden'} bg-slate-200  flex flex-col fixed top-0 h-full w-[330px] md:w-[280px] `}>
+        <div className={`${mobile ? "block" : 'hidden'} z-[13] bg-slate-200  flex flex-col fixed top-0 h-full w-[330px] md:w-[280px] `}>
             <div className='flex justify-between px-6 py-2 items-center mt-5'>
                 <h1 className='font-semibold text-2xl'>Menu</h1>
-                <div className='text-3xl items-center text-black' onClick={() => dispatch(setMoblie({}))}>
+                <div className='text-3xl items-center cursor-pointer text-black' onClick={() => dispatch(setMoblie({}))}>
                     <IoMdClose />
                 </div>
             </div>

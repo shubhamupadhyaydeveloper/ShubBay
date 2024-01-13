@@ -20,7 +20,6 @@ function Itemdetail() {
     try {
       let request = await fetch(`http://localhost:1337/api/items/${id}?populate=image` , {method : 'GET'})
       let response = await request.json()
-      console.log(response.data)
       setItem(response.data)
     } catch (error) {
       console.log(error.message + 'error in apicall')
@@ -31,7 +30,6 @@ function Itemdetail() {
     getItem()
   } , [id])
 
-  console.log(item?.attributes?.image?.data?.attributes?.formats?.medium?.url);
 
   return (
     <div className="bg-white overflow-hidden mt-2">

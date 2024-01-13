@@ -9,6 +9,7 @@ import Navbar from '../components/pages/Navbar'
 import Cartmenu from '../components/pages/Cartmenu'
 import Mobilemenu from '../components/global/Mobilemenu'
 import Item from '../components/global/Item'
+import Subscribe from '../components/global/Subscribe'
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -36,6 +37,7 @@ function App() {
       </Routes>
       <Cartmenu />
       <Mobilemenu/>
+      <Subscribe/>
     </>
   )
 }
