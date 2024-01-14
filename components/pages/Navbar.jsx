@@ -1,8 +1,9 @@
 import React from 'react'
 import Badge from '@mui/material/Badge';
-import { useNavigate ,} from 'react-router-dom'
+import { useForm } from 'react-hook-form'
+import { useNavigate, } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { setCartOpen , setMoblie } from '../../store/reducer'
+import { setCartOpen, setMoblie } from '../../store/reducer'
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
 import { LuShoppingCart } from "react-icons/lu";
@@ -10,6 +11,24 @@ import { LuUser } from "react-icons/lu";
 import { FiSearch } from "react-icons/fi";
 
 function Navbar() {
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+        reset
+    } = useForm()
+
+    const formsubmit = (data) => {
+        navigate(`/search/${data.query}`)
+        reset()
+        if (mobile) {
+            dispatch(setMoblie())
+        } else {
+            return null;
+        }
+        console.log(data.query)
+    }
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -24,19 +43,34 @@ function Navbar() {
 
             <div className=' gap-3 md:block md:gap-7 md:me-5 me-4 dark:flex'>
                 <div className='hidden md:flex gap-2 md:gap-7 '>
-                <div className=' cursor-pointer text-2xl' onClick={() => navigate()}>
-                    <FiSearch />
+                    <div className=' cursor-pointer text-2xl'>
+                        <form action="#" onSubmit={handleSubmit(formsubmit)} className='mb-2'>
+                            <input
+                                placeholder='search'
+                                className='px-2 w-[12rem] rounded-md py-1 border border-slate-500 mt-[2px]'
+                                {...register('query', { required: 'Input is required' })}
+                            />
+                            <button className='text-black text-2xl ml-2'>
+                                <FiSearch />
+                            </button>
+                            {/* {errors.query && (
+                                <span className='text-red-500 break-normal pl-[4px] mt-[-33px] text-[22px]' style={{ display: 'block' }}>
+                                    {errors.query.message}
+                                </span>
+                            )} */}
+                        </form>
+
+                    </div>
+                    <div className='cursor-pointer text-2xl mt-2' onClick={() => navigate()}>
+                        <LuUser />
+                    </div>
+                    <div className='cursor-pointer text-2xl' onClick={() => dispatch(setCartOpen({}))}>
+                        <Badge badgeContent={cart.length} color='warning'>
+                            <LuShoppingCart />
+                        </Badge>
+                    </div>
                 </div>
-                <div className='cursor-pointer text-2xl' onClick={() => navigate()}>
-                    <LuUser />
-                </div>
-                <div className='cursor-pointer text-2xl mt-[-8px]' onClick={() => dispatch(setCartOpen({}))}>
-                    <Badge badgeContent={cart.length} color='warning'>
-                        <LuShoppingCart  />
-                    </Badge>                
-                </div>
-                </div>
-                <div className='flex items-center text-2xl z-20 cursor-pointer md:block' onClick={() => dispatch(setMoblie({}))}>
+                <div className='flex items-center text-2xl mt-2 z-20 cursor-pointer md:block' onClick={() => dispatch(setMoblie({}))}>
                     {
                         mobile ? <IoMdClose /> : <RxHamburgerMenu />
                     }

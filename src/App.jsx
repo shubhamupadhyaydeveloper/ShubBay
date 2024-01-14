@@ -8,8 +8,8 @@ import Home from '../components/pages/Home'
 import Navbar from '../components/pages/Navbar'
 import Cartmenu from '../components/pages/Cartmenu'
 import Mobilemenu from '../components/global/Mobilemenu'
-import Item from '../components/global/Item'
 import Subscribe from '../components/global/Subscribe'
+import Searchitems from '../components/global/Searchitems'
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -28,12 +28,12 @@ function App() {
     <>
       <Navbar />
       <ScrollToTop />
-      {/* <Item/> */}
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/item/:id' element={<Itemdetail />} />
         <Route path='/checkout' element={<Checkout />} />
         <Route path='/checkout/success' element={<Confirmation />} />
+        <Route path='/search/:query' element={<Searchitems/>} />
       </Routes>
       <Cartmenu />
       <Mobilemenu/>
