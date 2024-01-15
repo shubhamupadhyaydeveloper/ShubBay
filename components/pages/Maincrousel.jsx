@@ -33,8 +33,8 @@ function Maincrousel() {
       )}
        >
      <div className='h-[400px] xl:h-[510px] 2xl:h-[570px] lg:h-[480px] md:h-[450px] bg-slate-500 bg-center bg-cover'
-     style={{backgroundImage : `url(${process.env.PUBLIC_URL}/images/slider1.jpg)`}}
       >
+        <img src="../../image/slider1.jpg" alt="error" className='object-cover w-full h-full' />
          <div className='bg-slate-900 absolute top-[15rem] flex flex-col gap-1 p-2 rounded-lg left-[5rem] lg:left-[8rem] xl:-left-[-13rem] xl:p-4'>
             <h1 className='flex items-center text-red-700 text-sm top-[15rem] xl:text-xl xl:mb-1'>--NEW ITEMS</h1>
             <h1 className=' text-2xl text-white font-medium xl:text-[3rem]'>SUMMER SALE</h1>
@@ -42,17 +42,16 @@ function Maincrousel() {
         </div>
      </div>
           <div className='h-[400px] xl:h-[510px] 2xl:h-[570px] lg:h-[480px] md:h-[450px] bg-slate-500 bg-center bg-cover'
-          style={{backgroundImage : `url(${process.env.PUBLIC_URL}/images/slider2.jpg)`}}
            >
+            <img src="../../image/slider2.jpg" alt="error" className='object-cover w-full h-full' />
           </div>
      <div className='h-[400px] xl:h-[510px] 2xl:h-[570px] lg:h-[480px] md:h-[450px] bg-slate-500 bg-center bg-cover'
-     style={{backgroundImage : `url(${process.env.PUBLIC_URL}/images/slider4.jpg)`}}
       >
+          <img src="../../image/slider4.jpg" alt="error" className='object-cover w-full h-full' />
      </div>
      <div className='h-[400px] xl:h-[510px] 2xl:h-[570px] lg:h-[480px] md:h-[450px] bg-slate-500 bg-center bg-cover'
-     style={{backgroundImage : `url(${process.env.PUBLIC_URL}/images/slider3.jpg)`}}
       >
-  
+    <img src="../../image/slider3.jpg" alt="error" className='object-cover w-full h-full' />
      </div>
    
     </Carousel>
