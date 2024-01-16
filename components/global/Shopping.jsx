@@ -16,7 +16,7 @@ function Shopping() {
     }
 
     async function getItems() {
-        let items = await fetch('http://localhost:1337/api/items?populate=image', { method: 'GET' })
+        let items = await fetch('https://backendshubbay.onrender.com/api/items?populate=image', { method: 'GET' })
         let itemsjson = await items.json()
         dispatch(setItem(itemsjson.data))
     }

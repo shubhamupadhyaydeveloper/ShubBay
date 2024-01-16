@@ -11,7 +11,7 @@ function Searchitems() {
     async function getSearch() {
         try {
             if (query.length > 0) {
-                const request = await fetch(`http://localhost:1337/api/items?populate=*&filters[name][$contains]=${query}`)
+                const request = await fetch(`https://backendshubbay.onrender.com/api/items?populate=*&filters[name][$contains]=${query}`)
                 const response = await request.json()
                 setItems(response.data)
                 console.log(response.data)

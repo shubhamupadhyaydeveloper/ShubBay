@@ -18,7 +18,7 @@ function Itemdetail() {
 
   async function getItem() {
     try {
-      let request = await fetch(`http://localhost:1337/api/items/${id}?populate=image` , {method : 'GET'})
+      let request = await fetch(`https://backendshubbay.onrender.com/api/items/${id}?populate=image` , {method : 'GET'})
       let response = await request.json()
       setItem(response.data)
     } catch (error) {
@@ -41,7 +41,7 @@ function Itemdetail() {
     <div className=" mt-2 2xl:ml-[20rem]">
     {item && item.attributes && item.attributes.image && item.attributes.image.data && item.attributes.image.data.attributes && item.attributes.image.data.attributes.formats && item.attributes.image.data.attributes.formats.medium && (
       <div className="w-[25rem] md:w-[27rem] lg:w-[30rem] xl:w-[33rem] lg:ml-10 2xl:mr-[-10rem]">
-        <img src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`} alt="Item Image" />
+        <img src={`https://backendshubbay.onrender.com${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`} alt="Item Image" />
       </div>
     )}
     </div>
