@@ -10,7 +10,6 @@ import { showNotification } from '../global/Notification';
 function Itemdetail() {
 
   const [count , setCount] = useState(1)
-  const [value , setvalue] = useState(false)
   const [item , setItem] = useState(null)
   const [items , setItems] = useState([])
   const {id} = useParams()
@@ -41,7 +40,7 @@ function Itemdetail() {
     <div className=" mt-2 2xl:ml-[20rem]">
     {item && item.attributes && item.attributes.image && item.attributes.image.data && item.attributes.image.data.attributes && item.attributes.image.data.attributes.formats && item.attributes.image.data.attributes.formats.medium && (
       <div className="w-[25rem] md:w-[27rem] lg:w-[30rem] xl:w-[33rem] lg:ml-10 2xl:mr-[-10rem]">
-        <img src={`https://backendshubbay.onrender.com${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`} alt="Item Image" />
+        <img src={`${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`} alt="Item Image" />
       </div>
     )}
     </div>

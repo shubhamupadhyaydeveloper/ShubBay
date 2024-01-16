@@ -21,7 +21,9 @@ function Stripe() {
 
     const response = await fetch("https://backendshubbay.onrender.com/api/orders", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json" ,
+      "Authorization" : "fbf64eea0ca3db6bb9394df863fb4362933df0ab96871ddecaaab6735cb83b1639bf60d2aa9e1730fb5968267b1f2a4c681ab281be7c6e540007c67644f59b7daf0c25f6342d6b3acb8a440972a6882bfa82ac433cf2b561de61edd300707d256f466914dbe09f6315f40b3cf36cf52ea98ff547f0db369bcea8af42ede458d4"
+    }, 
       body: JSON.stringify(requestBody),
     });
 

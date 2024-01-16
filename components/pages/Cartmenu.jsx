@@ -55,7 +55,7 @@ function Cartmenu() {
                     <ul role="list" className="-my-6 divide-y divide-gray-200">
                       <li className="flex py-6">
                         <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                          <img src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`} />
+                          <img src={`${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`} />
                         </div>
 
                         <div className="ml-4 flex flex-1 flex-col">

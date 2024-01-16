@@ -59,7 +59,7 @@ function Item({item , width}) {
           onMouseLeave={handleMouseLeave}
           onClick={() => navigate(`/item/${item?.id}`)}
         >
-          <img src={`https://backendshubbay.onrender.com${url}`} alt="photo" className='object-cover cursor-pointer w-full' />
+          <img src={`${url}`} alt="photo" className='object-cover cursor-pointer w-full' />
           {hovered && (
             <div className='absolute bottom-0 flex justify-between w-[20rem] px-2'>
               <div className='flex gap-2 text-xl bg-slate-900 text-white p-2 rounded-md'>
