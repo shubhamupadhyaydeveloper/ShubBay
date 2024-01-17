@@ -53,11 +53,7 @@ function Mobilemenu() {
                           {...register('query' , {required : 'input is required'})}
                         />
                                     <button className='text-black text-2xl ml-2'><FiSearch/></button>
-                       {/* {errors.query && (
-                                <span className='text-red-500 break-normal pl-[4px] mt-[-30px] text-[18px]' style={{ display: 'block' }}>
-                                    {errors.query.message}
-                                </span>
-                            )} */}
+                       
                         </form>
                     </div>
                 </div>

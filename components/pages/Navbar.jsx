@@ -41,7 +41,7 @@ function Navbar() {
                 <h1 className='text-2xl md:text-3xl z-10 font-bold'>ShubBay</h1>
             </div>
 
-            <div className=' gap-3 md:block md:gap-7 md:me-5 me-4 dark:flex'>
+            <div className='flex flex-row gap-4'>
                 <div className='hidden md:flex gap-2 md:gap-7 '>
                     <div className=' cursor-pointer text-2xl'>
                         <form action="#" onSubmit={handleSubmit(formsubmit)} className='mb-2'>
